@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       // ignore: prefer_const_constructors
-      home: MenuPage(),
+      home: LoginPage(),
     );
   }
 }

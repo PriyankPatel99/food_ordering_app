@@ -4,7 +4,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_ordering_app/colors.dart';
+import 'package:food_ordering_app/controller/google_sign_in.dart';
 import 'package:food_ordering_app/screens/components/full_button.dart';
+import 'package:food_ordering_app/screens/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -56,7 +58,17 @@ class _LoginPageState extends State<LoginPage> {
                             "assets/google.svg",
                           ),
                           onPressed: () {
-                            print("google");
+                            signInWithGoogle().then((result) {
+                              if (result != null) {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return HomePage();
+                                    },
+                                  ),
+                                );
+                              }
+                            });
                           },
                         )),
                     Spacer(

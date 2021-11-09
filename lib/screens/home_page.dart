@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_ordering_app/controller/google_sign_in.dart';
 import 'package:food_ordering_app/models/MyFiles.dart';
 import 'package:food_ordering_app/screens/widgets/categoryslider.dart';
 
@@ -78,10 +79,11 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              IconButton(
+              /*   IconButton(
                 onPressed: () {
                   print("User");
                 },
+                
                 icon: Icon(
                   Icons.person_outline_outlined,
                   size: 30,
@@ -89,6 +91,18 @@ class HomePage extends StatelessWidget {
                       ? AppColors.subtextdark
                       : AppColors.subtextlight,
                 ),
+              ),*/
+              CircleAvatar(
+                backgroundImage: NetworkImage(
+                  imageUrl!,
+                ),
+                child: GestureDetector(
+                  onTap: () {
+                    print("Patel Priyank");
+                  },
+                ),
+                radius: 15,
+                backgroundColor: Colors.transparent,
               ),
               Spacer(),
             ],
@@ -119,7 +133,7 @@ class HomePage extends StatelessWidget {
                             fontSize: 18, fontWeight: FontWeight.w600),
                       ),
                       Text(
-                        "242 ST Marks Eve, Finland ",
+                        name!,
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
